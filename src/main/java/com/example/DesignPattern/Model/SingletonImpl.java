@@ -26,7 +26,7 @@ public class SingletonImpl {
 	
 	public static SingletonImpl getObject() { // call this static method to get object
 		if(singletonImplObject == null) {
-			syncronized {
+			syncronized(this) {
 				if(singletonImplObject == null)
 					singletonImplObject = new SingletonImpl();
 			}
