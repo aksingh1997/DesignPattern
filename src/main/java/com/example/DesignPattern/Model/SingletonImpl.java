@@ -21,10 +21,15 @@ public class SingletonImpl {
 	}
 	
 	private List<Book> bookList = new ArrayList<>();
-	private static SingletonImpl singletonImplObject = new SingletonImpl(); //create object here and access it in static method
+	private static SingletonImpl singletonImplObject;
 	private SingletonImpl() {};
 	
 	public static SingletonImpl getObject() { // call this static method to get object
+		if(singletonImplObject == null) {
+			syncronized {
+				if(singletonImplObject == null)
+					singletonImplObject = new SingletonImpl();
+			}
 		return singletonImplObject;
 	}
 	
